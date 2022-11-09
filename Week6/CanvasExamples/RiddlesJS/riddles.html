@@ -5,10 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Riddles</title>
-    <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap" rel="stylesheet">
     <style>
-        h1{
-            font-family:Verdana;
+        @font-face{
+            font-family: gummy bears ;
+            src: url(fonts/Gummy\ Bears.ttf);
+        }
+       body{
+        background-color: palegreen;
+        font-family:gummy bears;
+       }
+       h1{
             color: blueviolet;
             background-color: pink;
             border: 10px;
@@ -21,12 +31,14 @@
         <li>
             <p>Why did the vampire take art class?</p>
             <br>
-            <p onclick="showAnswer('answer', 'He wanted to learn how to draw blood')" id="answer">answer</p>
+            <button onclick="showAnswer('answer', 'He wanted to learn how to draw blood')">click for answer</button>
+            <span id="answer"></span>
         </li>
         
         <li>
             <p>The more you take, the more you leave behind. What am I?</p>
             <br>
+            
             <p onclick="showAnswer('answer2','Footsteps.')" id="answer2">answer</p>
         </li>
         <li>
@@ -71,7 +83,7 @@
         </li>
     </ol>
 
-    <h2 style="font-family: 'Franklin Gothic Medium'; color: blue;">Thank you for checking out the page</h2>
+    <h2 style=" color: blue;">Thank you for checking out the page</h2>
     <script src="riddles.js"></script>
 </body>
 </html>
