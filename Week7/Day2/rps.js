@@ -106,7 +106,7 @@ function playGame(playerChoice) {
                     draw(hrock, paper, scissors, hrock, paper, scissors)
 
                 }
-                else if (cpuChoice == 1) {
+                 else if (cpuChoice == 1) {
                     //paper
                     //alert("CPU chose Paper. You lose!");
                     Results = "CPU chose Paper. You lose!"
