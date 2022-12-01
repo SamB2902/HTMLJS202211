@@ -75,7 +75,6 @@ function playGame(playerChoice){
                 else if(cpuChoice == 2){Results = "CPU chose Pirate. You Lose!"}
                 else if(cpuChoice == 3){Results ="CPU chose Robot. You Win!"}
                 else{Results = "CPU chose Zombie.  You Lose!"}
-                
                 draw(mnprz,mnprz);
             
                 
