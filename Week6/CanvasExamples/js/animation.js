@@ -38,7 +38,7 @@ if(x > canvas.width - 100 || x < + 0){
 }
 if(y > canvas.height - 110 || y < 0){
     speedY *= -1;
-}
+}       
 console.log(speedX);
 timer = requestAnimationFrame(main);
 }
