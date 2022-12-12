@@ -22,10 +22,10 @@ function GameObject(){
     this.color = `rgb(${randomRange(255, 0)}, ${randomRange(255, 0)}, ${randomRange(255, 0)})`;
 
     //this is an example of a method for a function
-    this.drawSquare = function(){
+    /*this.drawSquare = function(){
         ctx.fillStyle = this.color;
         ctx.fillRect (this.x, this.y, this.width, this.height);
-    }
+    }*/
 
     this.drawCircle = function(){
         ctx.beginPath();

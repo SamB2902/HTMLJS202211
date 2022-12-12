@@ -1,0 +1,12 @@
+html,body{
+    display: flex;
+    justify-content: center;
+    background-color: black;
+}
+canvas{
+    border: 1px solid darkred;
+}
+#container{
+    color: white;
+    background-color: darkslateblue;
+}
