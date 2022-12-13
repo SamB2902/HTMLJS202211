@@ -191,10 +191,10 @@ function PlayerShip() {
         //draw the ship
         ctx.fillStyle = "red";
         ctx.beginPath();
-        ctx.moveTo(-10, 0);
+        ctx.moveTo(0, -10);
         ctx.lineTo(10, 10);
-        ctx.lineTo(10, -10);
-        ctx.lineTo(-10, 0);
+        ctx.lineTo(-10, 10);
+        ctx.lineTo(0, -10);
         ctx.closePath();
         ctx.fill();
         ctx.restore();
@@ -276,17 +276,17 @@ gameState[1] = function(){
 
     //vertical movement
     if (ship.up) {
-        ship.vx = -10;
+        ship.vy = -10;
     } else {
-        ship.vx = -3;
+        ship.vy = 3;
     }
     //horizontal movement
-    if (ship.right) {
-        ship.vy = 5;
-    } else if (ship.left) {
-        ship.vy = -5;
+    if (ship.left) {
+        ship.vx = -5;
+    } else if (ship.right) {
+        ship.vx = 5;
     } else {
-        ship.vy = 0;
+        ship.vx = 0;
     }
 
     for (var i = 0; i < asteroids.length; i++) {
@@ -385,4 +385,3 @@ function scoreTimer(){
         setTimeout(scoreTimer, 1000);
     }
 }
-
