@@ -142,7 +142,7 @@ function pressKeyUp(e) {
 //Asteroid Class
 function Asteroid() {
     //properties to draw the asteroid
-    this.radius = randomRange(45, 20);
+    this.radius = randomRange(40, 20);
     this.x = randomRange(canvas.width - this.radius, this.radius);
     this.y = randomRange(canvas.height - this.radius, this.radius) - canvas.height;
     this.vy = randomRange(10, 5);
@@ -164,8 +164,8 @@ function Asteroid() {
 function PlayerShip() {
     this.x = canvas.width / 2;
     this.y = canvas.height / 2;
-    this.width = 30;
-    this.height = 30;
+    this.width = 20;
+    this.height = 20;
     this.up = false;
     this.down = false;
     this.left = false;
