@@ -140,7 +140,7 @@ gameStates[`level1`] = function()
 		wiz.canJump = false;
 		wiz.vy = wiz.jumpHeight;
 		wiz.changeState(`jump`)
-		sounds.play(`jump`)
+		//sounds.play(`jump`)
 	}
 	shotTimer--;
 	if(shotTimer <=0)
