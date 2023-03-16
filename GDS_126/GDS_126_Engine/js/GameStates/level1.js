@@ -10,7 +10,7 @@ var wiz = new GameObject({width:128, height:128, spriteData:playerData}).makeSpr
 wiz.force=1
 
 //The ground
-var ground = new GameObject({width:canvas.width*10, x:canvas.width*10/2,height:64,y:canvas.height-32, color:"green"})
+var ground = new GameObject({width:canvas.width*15, x:canvas.width*10/2,height:64,y:canvas.height-32, color:"green"})
 ground.img.src=`images/ground.png`
 
 //A platform
@@ -30,14 +30,14 @@ var caveBack = new Grid(caveBackData, {world:level, x:1024, tileHeight:64, tileW
 //cave hitbox grid
 var caveHit = new Grid(caveHitData, {world:level, x:1024, tileHeight:64, tileWidth:64});
 
-var leftBorder = new GameObject({x:0, height:canvas.height, world:level})
+var leftBorder = new GameObject({x:-200, height:canvas.height, world:level})
 
 //This is a group used for collisions
 var g1 = new Group();
 g1.color= `rgb(251,0,254)`;
-
+var levelEnd = new GameObject({x:5000, height:canvas.height, world:level})
 //Adds items to a group
-g1.add([ground,leftBorder, caveHit.grid])
+g1.add([ground,leftBorder, caveHit.grid,levelEnd])
 
 //removes items from a group
 //g1.remove([plat, cave.grid])
@@ -140,7 +140,7 @@ gameStates[`level1`] = function()
 		wiz.canJump = false;
 		wiz.vy = wiz.jumpHeight;
 		wiz.changeState(`jump`)
-		//sounds.play(`jump`)
+		sounds.play(`jump`)
 	}
 	shotTimer--;
 	if(shotTimer <=0)
@@ -239,10 +239,10 @@ gameStates[`level1`] = function()
 	level.x -= offset.x;
 
 	//moves repeating background
-	rbg.x = level.x*.5;
+	rbg.x-= offset.x*.5;
 
 	//moves the middleground
-	bg.x = level.x*.75;
+	bg.x-= offset.x*.75;
 
 	//moves the clouds
 	//clouds.x = level.x*.25;
