@@ -9,6 +9,7 @@ var player;
 	
 	//Instantiate the Player
 	player = new Player();
+	player.vx = 2;
 	
 function animate()
 {
@@ -16,7 +17,7 @@ function animate()
 	context.clearRect(0,0,canvas.width, canvas.height);	
 	
 	//Move the Player
-	//player.x += 2;
+	player.move();
 
 	//Update the Screen
 	player.draw();
