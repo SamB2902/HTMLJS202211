@@ -9,7 +9,7 @@ var player;
 	
 	//Instantiate the Player
 	player = new Player();
-	player.vx = 2;
+	player.vx = -2;
 	
 function animate()
 {
@@ -18,6 +18,13 @@ function animate()
 	
 	//Move the Player
 	player.move();
+
+	//collision
+	if(player.x < 0 + player.width/2)
+	{
+		player.x = 0 +player.width/2;
+		player.vx = -player.vx;
+	}
 
 	//Update the Screen
 	player.draw();
