@@ -6,8 +6,8 @@ function Player()
 	this.y = canvas.height/2;
 	
 	//player's dimensions
-	this.width = 60;
-	this.height = 60;
+	this.width = 100;
+	this.height = 100;
 	
 	//player's velocity or speed on each axis
 	this.vx = 0;
