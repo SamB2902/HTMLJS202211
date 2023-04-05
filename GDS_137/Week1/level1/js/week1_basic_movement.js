@@ -9,7 +9,8 @@ var player;
 	
 	//Instantiate the Player
 	player = new Player();
-	player.vx = -2;
+	player.vx = -1;
+	player.vy = -1;
 	
 function animate()
 {
@@ -29,6 +30,17 @@ function animate()
 	{
 		player.x = 925 + player.width/2;
 		player.vx = -player.vx;
+	}
+
+	if(player.y < 0 + player.height/2)
+	{
+		player.y = 0 + player.height/2;
+		player.vy = -player.vy;
+	}
+	if(player.y > 705 + player.height/2)
+	{
+		player.y = 705 + player.height/2;
+		player.vy = -player.vy;
 	}
 
 	//Update the Screen
