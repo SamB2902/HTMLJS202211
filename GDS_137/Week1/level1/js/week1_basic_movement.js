@@ -22,7 +22,12 @@ function animate()
 	//collision
 	if(player.x < 0 + player.width/2)
 	{
-		player.x = 0 +player.width/2;
+		player.x = 0 + player.width/2;
+		player.vx = -player.vx;
+	}
+	if(player.x > 925 + player.width/2)
+	{
+		player.x = 925 + player.width/2;
 		player.vx = -player.vx;
 	}
 
