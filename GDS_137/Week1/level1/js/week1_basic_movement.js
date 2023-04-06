@@ -9,8 +9,8 @@ var player;
 	
 	//Instantiate the Player
 	player = new Player();
-	player.vx = -1;
-	player.vy = -1;
+	player.vx = -2;
+	player.vy = -2;
 	
 function animate()
 {
@@ -25,22 +25,26 @@ function animate()
 	{
 		player.x = 0 + player.width/2;
 		player.vx = -player.vx;
+		player.color =  "#ff8000";
 	}
 	if(player.x > 925 + player.width/2)
 	{
 		player.x = 925 + player.width/2;
 		player.vx = -player.vx;
+		player.color =  "#ff00ff";
 	}
 
 	if(player.y < 0 + player.height/2)
 	{
 		player.y = 0 + player.height/2;
 		player.vy = -player.vy;
+		player.color =  "#00ff00";
 	}
 	if(player.y > 705 + player.height/2)
 	{
 		player.y = 705 + player.height/2;
 		player.vy = -player.vy;
+		player.color =  "#00ffff";
 	}
 
 	//Update the Screen
