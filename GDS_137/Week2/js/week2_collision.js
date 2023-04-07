@@ -13,9 +13,9 @@ var player1;
 	
 	//Instantiate the Player
 	var player1 = new GameObject();
-	player1.x = 10;
-	player1.width = 20;
-	player1.height = player1.width*4;
+	player1.x = 5;
+	player1.width = 10;
+	player1.height = 150;
 	player1.color = "blue";
 	
 	
@@ -24,12 +24,26 @@ function animate()
 	//Erase the Screen
 	context.clearRect(0,0,canvas.width, canvas.height);	
 
+	player1.move();
+
 	if(w)
 	{
 		player1.y += -2
 	}
 	if(s)
-	{player1.y += 2}
+	{
+		player1.y += 2
+	}
+	if(player1.y < 0 + player1.height/2)
+	{
+		player1.y = 0 + player1.height/2;
+		player1.vy = -player1.vy;
+	}
+	if(player1.y > 650 + player1.height/2)
+	{
+		player1.y = 650 + player1.height/2;
+		player1.vy = -player1.vy;
+	}
 
 player1.drawRect();
 }

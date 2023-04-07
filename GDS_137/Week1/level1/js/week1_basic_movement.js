@@ -17,7 +17,7 @@ function animate()
 	//Erase the Screen
 	context.clearRect(0,0,canvas.width, canvas.height);	
 	
-	//Move the PPlayer
+	//Move the Player
 	player.move();
 
 	//collision
