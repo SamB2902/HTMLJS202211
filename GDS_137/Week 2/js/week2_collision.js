@@ -16,6 +16,7 @@ var player1;
 	player1.x = 100;
 	player1.width = 20;
 	player1.height = player1.width*4;
+	player1.color = "blue";
 	
 	
 function animate()
