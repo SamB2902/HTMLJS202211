@@ -35,12 +35,10 @@ function animate()
 	ball.move();
 	
 		//ball collision
-		/*if(ball.x < 0 + ball.width/2)
+		if(ball.x < 0)
 		{
-			ball.x = 0 + ball.width/2;
-			ball.vx = -ball.vx;
-			
-		}*/
+			ball.x = canvas.width/2;
+		}
 		if(ball.x > 974 + ball.width/2)
 		{
 			ball.x = 974 + ball.width/2;
