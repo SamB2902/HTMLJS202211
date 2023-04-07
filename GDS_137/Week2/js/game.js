@@ -15,7 +15,7 @@ var player1;
 	ball = new GameObject();
 	ball.vx = -2;
 	ball.vy = 0;	
-	ball.width = 30;
+	ball.width = 50;
 	ball.height = ball.width;
 	
 //Instantiate Player 1
@@ -41,9 +41,9 @@ function animate()
 			ball.vx = -ball.vx;
 			
 		}*/
-		if(ball.x > 994 + ball.width/2)
+		if(ball.x > 974 + ball.width/2)
 		{
-			ball.x = 994 + ball.width/2;
+			ball.x = 974 + ball.width/2;
 			ball.vx = -ball.vx;
 			ball.color =  "#ff00ff";
 		}
@@ -54,9 +54,9 @@ function animate()
 			ball.vy = -ball.vy;
 			ball.color =  "#00ff00";
 		}
-		if(ball.y > 770 + ball.height/2)
+		if(ball.y > 750 + ball.height/2)
 		{
-			ball.y = 770 + ball.height/2;
+			ball.y = 750 + ball.height/2;
 			ball.vy = -ball.vy;
 			ball.color =  "#00ffff";
 		}
