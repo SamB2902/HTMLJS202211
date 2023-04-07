@@ -8,7 +8,7 @@ var interval = 1000/60;
 var player;
 	
 	//Instantiate the Player
-	player = new Player();
+	player = new player();
 	player.vx = -2;
 	player.vy = -2;
 	
@@ -17,7 +17,7 @@ function animate()
 	//Erase the Screen
 	context.clearRect(0,0,canvas.width, canvas.height);	
 	
-	//Move the Player
+	//Move the PPlayer
 	player.move();
 
 	//collision
