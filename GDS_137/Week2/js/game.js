@@ -12,9 +12,11 @@ var player1;
 //var prevX;
 
 	//Instantiate the Player
-	player = new GameObject();
-	player.vx = -2;
-	player.vy = -2;	
+	ball = new GameObject();
+	ball.vx = -2;
+	ball.vy = 0;	
+	ball.width = 30;
+	ball.height = ball.width;
 	
 //Instantiate Player 1
 	var player1 = new GameObject();
@@ -30,34 +32,40 @@ function animate()
 	context.clearRect(0,0,canvas.width, canvas.height);	
 
 	player1.move();
-	player.move();
+	ball.move();
 	
 		//ball collision
-		if(player.x < 0 + player.width/2)
+		/*if(ball.x < 0 + ball.width/2)
 		{
-			player.x = 0 + player.width/2;
-			player.vx = -player.vx;
-			player.color =  "#ff8000";
-		}
-		if(player.x > 925 + player.width/2)
+			ball.x = 0 + ball.width/2;
+			ball.vx = -ball.vx;
+			
+		}*/
+		if(ball.x > 994 + ball.width/2)
 		{
-			player.x = 925 + player.width/2;
-			player.vx = -player.vx;
-			player.color =  "#ff00ff";
+			ball.x = 994 + ball.width/2;
+			ball.vx = -ball.vx;
+			ball.color =  "#ff00ff";
 		}
 	
-		if(player.y < 0 + player.height/2)
+		if(ball.y < 0 + ball.height/2)
 		{
-			player.y = 0 + player.height/2;
-			player.vy = -player.vy;
-			player.color =  "#00ff00";
+			ball.y = 0 + ball.height/2;
+			ball.vy = -ball.vy;
+			ball.color =  "#00ff00";
 		}
-		if(player.y > 705 + player.height/2)
+		if(ball.y > 770 + ball.height/2)
 		{
-			player.y = 705 + player.height/2;
-			player.vy = -player.vy;
-			player.color =  "#00ffff";
+			ball.y = 770 + ball.height/2;
+			ball.vy = -ball.vy;
+			ball.color =  "#00ffff";
 		}
+		if(ball.hitTestObject(player1))
+	{
+		ball.x = player1.x + player1.width/2 + ball.width/2;
+		ball.vx = -ball.vx;
+		ball.color =  "#ff8000";
+	}
 	
 	//player 1 collision
 	if(player1.y < 0 + player1.height/2)
@@ -79,7 +87,9 @@ function animate()
 	{
 		player1.y += 2
 	}
+
+	
 player1.drawRect();
-player.drawCircle();
+ball.drawCircle();
 }
 
