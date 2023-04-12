@@ -5,25 +5,26 @@ var context = canvas.getContext("2d");
 var timer = setInterval(animate, interval);
 //1000 ms or 1 second / FPS
 var interval = 1000/60;
-var player;
-var player1;
+var ball;
+var paddle1;
+
+
 
 //This is used to stop the player from moving through obstacles.
-//var prevX;
 
 	//Instantiate the Player
 	ball = new GameObject();
-	ball.vx = -2;
+	ball.vx = -3;
 	ball.vy = 0;	
 	ball.width = 50;
 	ball.height = ball.width;
 	
 //Instantiate Player 1
-	var player1 = new GameObject();
-	player1.x = 5;
-	player1.width = 10;
-	player1.height = 150;
-	player1.color = "blue";
+	var paddle1 = new GameObject();
+	paddle1.x = 5;
+	paddle1.width = 10;
+	paddle1.height = 150;
+	paddle1.color = "blue";
 	
 	
 function animate()
@@ -31,7 +32,7 @@ function animate()
 	//Erase the Screen
 	context.clearRect(0,0,canvas.width, canvas.height);	
 
-	player1.move();
+	paddle1.move();
 	ball.move();
 	
 		//ball collision
@@ -58,36 +59,44 @@ function animate()
 			ball.vy = -ball.vy;
 			ball.color =  "#00ffff";
 		}
-		if(ball.hitTestObject(player1))
-	{
-		ball.x = player1.x + player1.width/2 + ball.width/2;
+		if(ball.hitTestObject(paddle1))
+		{
+		if(ball.y < paddle1.y - paddle1.height/6)
+		{
+			ball.vy = -3;
+		}
+		if(ball.y > paddle1.y + paddle1.height/6)
+		{
+			ball.vy = 3;
+		}
+		ball.x = paddle1.x + paddle1.width/2 + ball.width/2;
 		ball.vx = -ball.vx;
 		ball.color =  "#ff8000";
-	}
+		}
 	
 	//player 1 collision
-	if(player1.y < 0 + player1.height/2)
+	if(paddle1.y < 0 + paddle1.height/2)
 	{
-		player1.y = 0 + player1.height/2;
-		player1.vy = -player1.vy;
+		paddle1.y = 0 + paddle1.height/2;
+		paddle1.vy = -paddle1.vy;
 	}
-	if(player1.y > 650 + player1.height/2)
+	if(paddle1.y > 650 + paddle1.height/2)
 	{
-		player1.y = 650 + player1.height/2;
-		player1.vy = -player1.vy;
+		paddle1.y = 650 + paddle1.height/2;
+		paddle1.vy = -paddle1.vy;
 	}
 	//player 1 controls
 	if(w)
 	{
-		player1.y += -2
+		paddle1.y += -2
 	}
 	if(s)
 	{
-		player1.y += 2
+		paddle1.y += 2
 	}
 
 	
-player1.drawRect();
+paddle1.drawRect();
 ball.drawCircle();
 }
 
