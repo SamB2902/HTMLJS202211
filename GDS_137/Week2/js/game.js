@@ -33,7 +33,7 @@ var p2Wins = 0;
 	paddle2.x = 1019;
 	paddle2.width = 10;
 	paddle2.height = 150;
-	paddle2.color = "green";
+	paddle2.color = "#b30000";
 	
 function animate()
 {
@@ -142,11 +142,23 @@ function animate()
 	{
 		paddle2.y += 2
 	}
+
+context.save;
+
+context.beginPath();
+context.moveTo(canvas.width/2,0);
+context.lineTo(canvas.width/2,800);
+context.closePath();
+context.lineWidth = 4;
+context.strokeStyle = "#800080";
+context.stroke();
+context.restore();
+
 	context.font = "20px Arial";
 	context.textAlign = "center";
-	context.fillText("Player 1 | Player 2",canvas.width/2,20);
+	context.fillText("Player 1   Player 2",canvas.width/2,20);
 	context.font = "15px Arial";
-	context.fillText(p2Wins+"-"+p1Wins, canvas.width/2, 40);
+	context.fillText(p2Wins+"  "+p1Wins, canvas.width/2, 40);
 	
 paddle1.drawRect();
 paddle2.drawRect();
