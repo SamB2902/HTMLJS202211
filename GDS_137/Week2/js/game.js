@@ -7,6 +7,8 @@ var timer = setInterval(animate, interval);
 var interval = 1000/60;
 var ball;
 var paddle1;
+var p1Wins = 0;
+var p2Wins = 0;
 
 
 
@@ -39,16 +41,23 @@ function animate()
 	context.clearRect(0,0,canvas.width, canvas.height);	
 
 	paddle1.move();
+	paddle2.move();
 	ball.move();
+
+	
 	
 		//ball collision
 		if(ball.x < 0)
 		{
 			ball.x = canvas.width/2;
+			p2Wins++;
+			//console.log ("p2Wins =",p2Wins) 
 		}
 		if(ball.x > 1024)
 		{
 			ball.x = canvas.width/2;
+			p1Wins++;
+			//console.log ("p1Wins =",p1Wins)
 		}
 		if(ball.y < 0 + ball.height/2)
 		{
@@ -133,7 +142,11 @@ function animate()
 	{
 		paddle2.y += 2
 	}
-
+	context.font = "20px Arial";
+	context.textAlign = "center";
+	context.fillText("Player 1 | Player 2",canvas.width/2,20);
+	context.font = "15px Arial";
+	context.fillText(p2Wins+"-"+p1Wins, canvas.width/2, 40);
 	
 paddle1.drawRect();
 paddle2.drawRect();
