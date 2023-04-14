@@ -2,6 +2,7 @@
 
 var canvas = document.getElementById("canvas");
 var context = canvas.getContext("2d");
+var img=document.getElementById("ric");
 var timer = setInterval(animate, interval);
 //1000 ms or 1 second / FPS
 var interval = 1000/60;
@@ -65,9 +66,9 @@ function animate()
 			ball.vy = -ball.vy;
 			ball.color =  "#00ff00";
 		}
-		if(ball.y > 750 + ball.height/2)
+		if(ball.y > 746 + ball.height/2)
 		{
-			ball.y = 750 + ball.height/2;
+			ball.y = 746 + ball.height/2;
 			ball.vy = -ball.vy;
 			ball.color =  "#00ffff";
 		}
@@ -143,16 +144,16 @@ function animate()
 		paddle2.y += 2
 	}
 
-context.save;
-
-context.beginPath();
-context.moveTo(canvas.width/2,0);
-context.lineTo(canvas.width/2,800);
-context.closePath();
-context.lineWidth = 4;
-context.strokeStyle = "#800080";
-context.stroke();
-context.restore();
+	
+	context.save;
+	context.beginPath();
+	context.moveTo(canvas.width/2,0);
+	context.lineTo(canvas.width/2,800);
+	context.closePath();
+	context.lineWidth = 4;
+	context.strokeStyle = "#800080";
+	context.stroke();
+	context.restore();
 
 	context.font = "20px Arial";
 	context.textAlign = "center";
@@ -162,6 +163,8 @@ context.restore();
 	
 paddle1.drawRect();
 paddle2.drawRect();
-ball.drawCircle();
+//ball.drawCircle();
+context.drawImage(img,ball.x -31,ball.y-31,ball.width+12,ball.height+12)
+
 }
 
