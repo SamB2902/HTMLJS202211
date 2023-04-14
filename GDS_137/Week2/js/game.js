@@ -12,20 +12,26 @@ var paddle1;
 
 //This is used to stop the player from moving through obstacles.
 
-	//Instantiate the Player
+	//Instantiate the ball
 	ball = new GameObject();
-	ball.vx = -3;
-	ball.vy = 0;	
+	ball.vx = -2;
+	ball.vy = -2;	
 	ball.width = 50;
 	ball.height = ball.width;
 	
-//Instantiate Player 1
+	//Instantiate Player 1
 	var paddle1 = new GameObject();
 	paddle1.x = 5;
 	paddle1.width = 10;
 	paddle1.height = 150;
 	paddle1.color = "blue";
-	
+
+	//Instantiate Player 2
+	var paddle2 = new GameObject();
+	paddle2.x = 1019;
+	paddle2.width = 10;
+	paddle2.height = 150;
+	paddle2.color = "green";
 	
 function animate()
 {
@@ -40,13 +46,10 @@ function animate()
 		{
 			ball.x = canvas.width/2;
 		}
-		if(ball.x > 974 + ball.width/2)
+		if(ball.x > 1024)
 		{
-			ball.x = 974 + ball.width/2;
-			ball.vx = -ball.vx;
-			ball.color =  "#ff00ff";
+			ball.x = canvas.width/2;
 		}
-	
 		if(ball.y < 0 + ball.height/2)
 		{
 			ball.y = 0 + ball.height/2;
@@ -59,6 +62,7 @@ function animate()
 			ball.vy = -ball.vy;
 			ball.color =  "#00ffff";
 		}
+		
 		if(ball.hitTestObject(paddle1))
 		{
 		if(ball.y < paddle1.y - paddle1.height/6)
@@ -73,6 +77,21 @@ function animate()
 		ball.vx = -ball.vx;
 		ball.color =  "#ff8000";
 		}
+		
+		if (ball.hitTestObject(paddle2))
+		{
+		if(ball.y < paddle2.y - paddle2.height/6)
+		{
+			ball.vy = -3;
+		}
+		if(ball.y > paddle2.y + paddle2.height/6)
+		{
+			ball.vy = 3;
+		}
+			ball.x = paddle2.x - paddle2.width/2 - ball.width/2;
+			ball.vx = -ball.vx;
+			ball.color =  "#ff00ff";
+		}
 	
 	//player 1 collision
 	if(paddle1.y < 0 + paddle1.height/2)
@@ -85,6 +104,17 @@ function animate()
 		paddle1.y = 650 + paddle1.height/2;
 		paddle1.vy = -paddle1.vy;
 	}
+	//player 2 collision
+	if(paddle2.y < 0 + paddle2.height/2)
+	{
+		paddle2.y = 0 + paddle2.height/2;
+		paddle2.vy = -paddle2.vy;
+	}
+	if(paddle2.y > 650 + paddle2.height/2)
+	{
+		paddle2.y = 650 + paddle2.height/2;
+		paddle2.vy = -paddle2.vy;
+	}
 	//player 1 controls
 	if(w)
 	{
@@ -94,9 +124,19 @@ function animate()
 	{
 		paddle1.y += 2
 	}
+	//player 2 controls
+	if(arrowUp)
+	{
+		paddle2.y += -2
+	}
+	if(arrowDown)
+	{
+		paddle2.y += 2
+	}
 
 	
 paddle1.drawRect();
+paddle2.drawRect();
 ball.drawCircle();
 }
 

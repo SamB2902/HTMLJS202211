@@ -41,7 +41,7 @@ function GameObject(x,y,w,h,color)
 			context.fillRect((-this.width/2), (-this.height/2), this.width, this.height);
 		context.restore();
 		
-	}	
+	}
 	
 	this.drawCircle = function()
 	{
