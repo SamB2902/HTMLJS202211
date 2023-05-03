@@ -12,15 +12,13 @@ enemy.height = 50;
 enemy.width = enemy.height;
 enemy.x = canvas.width+25;
 enemy.y = canvas.height-25;
-enemy.vx = -2;
+enemy.vx = -3;
 
 player = new GameObject();
 player.color = "#0066ff";
 player.height = 50;
 player.width = player.height;
 player.y = 675;
-//player.vx = 0;
-
 
 health = new GameObject()
 health.width = 200;
@@ -35,22 +33,6 @@ function animate(){
     
     player.move();
     enemy.move(); 
-
-    if(w && player.canJump && player.vy ==0)
-	{
-		player.canJump = false;
-		player.vy += player.jumpHeight;
-	}
-
-	if(a)
-	{
-		player.x += -2;
-	}
-	if(d)
-	{
-		player.x += 2 
-	}
-
     player.vx *= fX;
 	player.vy *= fY;
     player.vy += gravity;
@@ -80,17 +62,55 @@ function animate(){
         enemy.x = 950 + enemy.width/2;
         enemy.vx = -enemy.vx;
     }
-
-    while(health.width = 200)
-    { 
-        if (enemy.hitTestObject(player))
-        {
-            health.width = 175;
-        }
+    if(health.x < 10 + health.width/2)
+    {
+        health.x = 10 + health.width/2
     }
-   
+ 
+    if (enemy.hitTestObject(player) && health.width > 0)
+        {
+            health.width--; 
+        }
     
+    if(health.width == 0)
+        {
+            enemy.vx = 0;
+            context.font = "60px Arial Black";
+            context.fillStyle = "#000000";
+            context.textAlign = "center";
+            context.fillText("GAME OVER", canvas.width/2,canvas.height/2)
+        }
+       
     
+        context.save();
+        context.lineWidth = 1;
+        context.strokeStyle = "#000000";
+        context.beginPath();
+        context.moveTo(9,11);
+        context.lineTo(211,11);
+        context.lineTo(211,49);
+        context.lineTo(9,49);
+        context.lineTo(9,11);
+        context.closePath();
+        context.stroke();
+        context.restore();
+        
+        
+    
+    if(w && player.canJump && player.vy ==0)
+	{
+		player.canJump = false;
+		player.vy += player.jumpHeight;
+	}
+
+	if(a)
+	{
+		player.x += -2;
+	}
+	if(d)
+	{
+		player.x += 2 
+	}
     
     enemy.drawCircle();
     player.drawRect();
