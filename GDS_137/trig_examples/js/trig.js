@@ -53,7 +53,8 @@ function animate()
 	
 	//follower.move();
 
-	
+	//dx = Math.cos(rad)*hypotenuse
+	//dy = Math.sin(rad)*hypotenuse
 
 	/*-----------These move the follower-----------------*/
 	//magnet(); //- eases the follower towards the player - 
