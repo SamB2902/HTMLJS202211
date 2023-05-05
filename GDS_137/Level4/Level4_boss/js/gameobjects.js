@@ -41,7 +41,18 @@ function GameObject(obj)
 			context.fillRect((x), (y), this.width, this.height);
 		context.restore();
 		
-	}	
+	}
+	
+	this.drawStrokeRect = function(x = -this.width/2, y = -this.height/2)
+	{
+		context.save();
+        context.lineWidth = 1;
+        context.strokeStyle =  this.color;
+		context.translate(this.x, this.y);
+		context.strokeRect((x), (y), this.width, this.height);
+		context.restore();
+        
+	}
 	
 	this.drawCircle = function()
 	{

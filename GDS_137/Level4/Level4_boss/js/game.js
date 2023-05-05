@@ -9,7 +9,8 @@ var jumpCount = 1;
 
 enemy = new GameObject({color:"#990000", height:50, width:50, x:canvas.width+25, y:canvas.height-25, vx:-3});
 player = new GameObject({color:"#0066ff", height:50, width:50, y:675});
-health = new GameObject({width:200, height:36, color:"#00ff00", x:10, y:12});
+health = new GameObject({width:200, height:35, color:"#00ff00", x:10, y:12});
+healthStroke = new GameObject({x:9, y:11, color:"black", height:37, width: 202})
 
 function animate(){
     context.clearRect(0,0,canvas.width, canvas.height);	
@@ -59,19 +60,6 @@ function animate(){
          context.fillStyle = "#000000";
          context.textAlign = "center";
          context.fillText("GAME OVER", canvas.width/2,canvas.height/2)}
-       
-        context.save();
-        context.lineWidth = 1;
-        context.strokeStyle = "black";
-        context.beginPath();
-        context.moveTo(9,11);
-        context.lineTo(211,11);
-        context.lineTo(211,49);
-        context.lineTo(9,49);
-        context.lineTo(9,11);
-        context.closePath();
-        context.stroke();
-        context.restore();
     
     if(w && player.canJump && player.vy ==0 && jumpCount == 1)
 	{
@@ -95,4 +83,5 @@ function animate(){
     enemy.drawCircle();
     player.drawRect();
     health.drawRect(0,0);
+    healthStroke.drawStrokeRect(0,0);
 }
