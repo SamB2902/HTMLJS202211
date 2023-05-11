@@ -39,19 +39,19 @@ function animate()
 	//a and d rotate the triangle
 	angularMovement();
 
-	//var dx = player.x - follower.x;
-	//var dy = player.y - follower.y;
-	//var dist = Math.sqrt(dx*dx +dy*dy);
+	var dx = player.x - follower.x;
+	var dy = player.y - follower.y;
+	var dist = Math.sqrt(dx*dx +dy*dy);
 
-	//follower.vx = dx*.05;
-	//follower.vy = dy*.05;
+	follower.vx = dx*.05;
+	follower.vy = dy*.05;
 
 	////var rad = Math.atan2(dy,dx);
 	//rad = deg* Math.PI/180
 	//deg = rad * 180/Math.PI
 	////follower.angle = rad * 180/Math.PI;
 	
-	//follower.move();
+	follower.move();
 
 	//dx = Math.cos(rad)*hypotenuse
 	//dy = Math.sin(rad)*hypotenuse
