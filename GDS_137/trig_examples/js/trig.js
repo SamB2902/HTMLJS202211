@@ -43,13 +43,13 @@ function animate()
 	var dy = player.y - follower.y;
 	var dist = Math.sqrt(dx*dx +dy*dy);
 
-	follower.vx = dx*.05;
-	follower.vy = dy*.05;
+	//follower.vx = dx*.05;
+	//follower.vy = dy*.05;
 
-	////var rad = Math.atan2(dy,dx);
+	var rad = Math.atan2(dy,dx);
 	//rad = deg* Math.PI/180
 	//deg = rad * 180/Math.PI
-	////follower.angle = rad * 180/Math.PI;
+	follower.angle = rad * 180/Math.PI;
 	
 	follower.move();
 
