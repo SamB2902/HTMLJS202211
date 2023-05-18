@@ -17,7 +17,7 @@ function animate(){
     context.clearRect(0,0,canvas.width, canvas.height);	
     
     player.move();
-    //enemy.move(); 
+    enemy.move(); 
     player.vx *= fX;
 	player.vy *= fY;;;
     player.vy += gravity;
