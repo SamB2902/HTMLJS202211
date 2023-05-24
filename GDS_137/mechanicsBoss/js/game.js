@@ -59,9 +59,17 @@ function animate(){
          if(player.hitTestObject(powerUp))
          {
             powerUp.x = 1500;
+            
             if(health.width < 200)
-            {health.width = health.width + 25}
-         }
+            {
+                health.width = health.width + 25
+                    
+                if(health.width > 200)
+                {
+                    health.width = 200
+                }
+            }
+        }
             
     
     if(w && player.canJump && player.vy ==0)
