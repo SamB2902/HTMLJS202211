@@ -45,7 +45,7 @@ function animate() {
 
     for (var i = 0; i < enemy.length; i++) {
         enemy[i].drawTriangle();
-        //enemy[i].move(); 
+        enemy[i].move(); 
         if (enemy[i].x < 0 + enemy[i].width / 2) {
             enemy[i].x = 0 + enemy[i].width / 2;
             enemy[i].vx = -enemy[i].vx;
