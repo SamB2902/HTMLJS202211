@@ -30,9 +30,9 @@ function animate()
 	//Call just one of the functions below to view acceleration, friction, gravity and pixel lock.
 	//showAcceleration();
 	//showFriction();
-	//showGravity();
+	showGravity();
 	//showPixelLock();
-	showBounce();
+	//showBounce();
 	
 	player.drawRect();
 }
